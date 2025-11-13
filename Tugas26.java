@@ -22,7 +22,7 @@ public class Tugas26 {
             }
 
             rataNama= totalNama/6;
-            System.out.println("--------------------------");
+            System.out.println("-------------------------------");
             System.out.println("rata-rata nilai: " +rataNama);
         }
 
