@@ -27,11 +27,16 @@ public class BioskopWithScanner26 {
                     System.out.print("Masukkan kolom: ");
                     kolom= sc.nextInt();
                     sc.nextLine();
-
+                    
                     if (baris < 1 || baris > 4 || kolom < 1 || kolom > 2) {
-                            System.out.println("Kursi tidak tersedia");
-                    }
-                    penonton[baris-1][kolom-1]= nama;
+                            System.out.println("Posisi kursi tidak valid!");
+                        } else if (penonton[baris - 1][kolom - 1] != null) {
+                            System.out.println("Kursi sudah terisi. Pilih kursi lain");
+                        } else {
+                            penonton[baris - 1][kolom - 1] = nama;
+                            System.out.println("Kursi berhasil dipesan!");
+                        }
+                    
 
                     System.out.print("Input penonton lainnya? (Y/N): ");;
                     next= sc.nextLine();
@@ -43,21 +48,20 @@ public class BioskopWithScanner26 {
             case 2:
             System.out.println("\n=========Daftar Penonton=========");
                 for (int i = 0; i < penonton.length; i++) {
-                        System.out.print((i + 1)+"  ");
+                        System.out.print((i + 1) + " ");
                         for (int j = 0; j < penonton[i].length; j++) {
                             if (penonton[i][j] == null) {
-                                System.out.print("*");
+                                System.out.print("***");
                             } else {
                                 System.out.print(penonton[i][j]);
                             }
                             if (j < penonton[i].length - 1) {
-                                System.out.print("\t\t");
+                                System.out.print("\t ");
                             }
                         }
                         System.out.println();
                     }
                     break;
-
             case 3:
             System.out.println("EXIT");
             return;
